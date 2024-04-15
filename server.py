@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
@@ -23,11 +23,13 @@ def predict(input_text):
 
 app = Flask(__name__)
 
-
+@app.route('/')
+def index():
+    return render_template('index.html')
 @app.route('/predict', methods=['POST'])
 def ans():
     result = predict(request.json['text'])
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
