@@ -22,3 +22,15 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
     - name: Push Docker image to Docker Hub
       run: docker push n0th1ngn355/abbr_recovery:latest
+    - name: SSH deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        scripts: |
+          docker pull n0th1ngn355/abbr_recovery:latest
+          docker stop abbr_recovery || true
+          docker rm abbr_recovery || true
+          docker run -d --name abbr_recovery -p 9000:80 n0th1ngn355/abbr_recovery:latest
