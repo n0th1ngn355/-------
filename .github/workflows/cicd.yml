@@ -18,7 +18,7 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        login: ${{ secrets.DOCKER_LOGIN }}
+        username: ${{ secrets.DOCKER_LOGIN }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Push Docker image to Docker Hub
       run: docker push n0th1ngn355/abbr_recovery:latest
