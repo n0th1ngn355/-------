@@ -9,6 +9,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained(saved_model_dir)
 
 
 
+
 def predict(input_text):
     # Предобработка входных данных
     input_ids = tokenizer.encode(input_text, return_tensors="pt")   
