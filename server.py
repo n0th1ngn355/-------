@@ -3,9 +3,10 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
 saved_model_dir = "./trained_model"
+model_url = "Helsinki-NLP/opus-mt-en-ru"
 
-tokenizer = AutoTokenizer.from_pretrained(saved_model_dir)
-model = AutoModelForSeq2SeqLM.from_pretrained(saved_model_dir)
+tokenizer = AutoTokenizer.from_pretrained(model_url)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_url)
 
 
 
