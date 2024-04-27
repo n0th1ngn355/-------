@@ -30,7 +30,7 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        scripts: |
+        script: |
           docker pull n0th1ngn355/abbr_recovery:latest
           docker stop abbr_recovery || true
           docker rm abbr_recovery || true
