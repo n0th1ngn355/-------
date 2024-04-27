@@ -31,7 +31,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          docker pull n0th1ngn355/abbr_recovery:latest
-          docker stop abbr_recovery || true
-          docker rm abbr_recovery || true
-          docker run -d --name abbr_recovery -p 9000:80 n0th1ngn355/abbr_recovery:latest
+          podman pull n0th1ngn355/abbr_recovery:latest
+          podman stop abbr_recovery || true
+          podman rm abbr_recovery || true
+          podman run -d --name abbr_recovery -p 9000:80 n0th1ngn355/abbr_recovery:latest
