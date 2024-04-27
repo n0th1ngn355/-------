@@ -1,5 +1,5 @@
 # Используем базовый образ Python
-FROM python:3.13.0a6-slim-bookworm
+FROM python:3.12
 
 # Устанавливаем рабочую директорию в /app
 WORKDIR /app
